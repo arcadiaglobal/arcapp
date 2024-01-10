@@ -2,6 +2,6 @@
 <resources>
     <style name="AppTheme.NoActionBar.Splash">
         <item name="android:windowSplashScreenBackground">?android:colorBackground</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_aw</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_aw_launcher_foreground</item>
     </style>
 </resources>

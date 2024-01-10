@@ -23,11 +23,11 @@
 
     -->
     <!-- ?colorPrimary -->
-    <color name="brand">@color/azure</color>
+    <color name="brand">@color/ag_teal</color>
     <!-- ?colorOnPrimary -->
     <color name="brand_inverse">@color/white</color>
     <!-- ?colorAccent -->
-    <color name="accent">@color/brand</color>
+    <color name="accent">@color/ag_yellow</color>
     <!-- ?colorError -->
     <color name="error">@color/danger</color>
     <!-- ?colorOnError -->
@@ -37,15 +37,15 @@
     <!-- ?colorOnBackground -->
     <color name="background_inverse">@color/black</color>
     <!-- ?colorSurface -->
-    <color name="surface">@color/white</color>
+    <color name="surface">@color/alabaster</color>
     <!-- ?colorSurfaceSecondary -->
-    <color name="surface_secondary">@color/alabaster</color>
+    <color name="surface_secondary">@color/ag_gsd</color>
     <!-- ?colorSurfaceTertiary -->
-    <color name="surface_tertiary">@color/concrete</color>
+    <color name="surface_tertiary">@color/ag_gsc</color>
     <!-- ?colorSurfaceQuaternary -->
-    <color name="surface_quaternary">@color/mercury</color>
+    <color name="surface_quaternary">@color/ag_gsb</color>
     <!-- ?colorSurfaceQuinary -->
-    <color name="surface_quinary">@color/mercury</color>
+    <color name="surface_quinary">@color/ag_gsa</color>
     <!-- ?colorOnSurface -->
     <color name="surface_inverse">@color/black</color>
     <!-- ?colorSurfaceDark -->

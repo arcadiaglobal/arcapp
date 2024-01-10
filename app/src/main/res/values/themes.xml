@@ -100,7 +100,7 @@
     </style>
 
     <style name="AppTheme.NoActionBar.Splash">
-        <item name="android:windowBackground">@drawable/background_splash</item>
+        <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
 
     <style name="AppTheme.NoActionBar.Transparent">

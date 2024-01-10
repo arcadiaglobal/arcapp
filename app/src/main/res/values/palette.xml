@@ -53,4 +53,25 @@
 	<color name="shark">#232325</color>
 	<color name="atlantis">#7cca42</color>
 	<color name="yellow">#FDD835</color>
+    <!-- AG Colors -->
+    <color name="ag_red">#FF0000</color>
+    <color name="ag_orange">#FF4400</color>
+    <color name="ag_yellow">#FFAA00</color>
+    <color name="ag_green">#00B93D</color>
+    <color name="ag_teal">#00A3AA</color>
+    <color name="ag_blue">#0050cc</color>
+    <color name="ag_magenta">#FF0044</color>
+    <color name="ag_violet">#520052</color>
+    <color name="ag_gris">#939597</color>
+    <color name="ag_gs1">#111111</color>
+    <color name="ag_gs2">#222222</color>
+    <color name="ag_gs3">#333333</color>
+    <color name="ag_gs4">#444444</color>
+    <color name="ag_gs5">#555555</color>
+    <color name="ag_gs6">#666666</color>
+    <color name="ag_gsa">#AAAAAA</color>
+    <color name="ag_gsb">#BBBBBB</color>
+    <color name="ag_gsc">#CCCCCC</color>
+    <color name="ag_gsd">#DDDDDD</color>
+    <color name="ag_gse">#EEEEEE</color>
 </resources>

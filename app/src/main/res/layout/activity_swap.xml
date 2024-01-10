@@ -190,12 +190,15 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_continue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/standard_16"
-        android:enabled="false"
-        android:text="@string/action_continue" />
+            android:id="@+id/btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/standard_16"
+            android:layout_marginTop="@dimen/standard_16"
+            android:layout_marginEnd="@dimen/standard_16"
+            android:layout_marginBottom="@dimen/standard_16"
+            android:enabled="false"
+            android:text="@string/action_continue" />
 
 </RelativeLayout>

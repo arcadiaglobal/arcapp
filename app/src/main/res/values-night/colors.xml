@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="brand">@color/dodge</color>
+    <color name="brand">@color/ag_teal</color>
     <color name="brand_inverse">@color/white</color>
-    <color name="accent">@color/brand</color>
-    <color name="error">@color/danger</color>
+    <color name="accent">@color/ag_yellow</color>
+    <color name="error">@color/ag_red</color>
     <color name="error_inverse">@color/white</color>
-    <color name="background">@color/cod</color>
+    <color name="background">@color/black</color>
     <color name="background_inverse">@color/white</color>
-    <color name="surface">@color/cod</color>
-    <color name="surface_secondary">@color/venus</color>
-    <color name="surface_tertiary">@color/mine</color>
-    <color name="surface_quaternary">@color/venus</color>
-    <color name="surface_quinary">@color/mine</color>
+    <color name="surface">@color/ag_gs1</color>
+    <color name="surface_secondary">@color/ag_gs2</color>
+    <color name="surface_tertiary">@color/ag_gs3</color>
+    <color name="surface_quaternary">@color/ag_gs4</color>
+    <color name="surface_quinary">@color/ag_gs5</color>
     <color name="surface_inverse">@color/white</color>
     <color name="surface_dark">@color/white</color>
     <color name="background_floating">@color/mine</color>
