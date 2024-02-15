@@ -1190,7 +1190,7 @@ public class Utils
 
     public static boolean isAlphaWallet(Context context)
     {
-        return context.getPackageName().equals("io.stormbird.wallet");
+        return context.getPackageName().equals("global.arcadia.wallet");
     }
 
     //Decode heuristic:

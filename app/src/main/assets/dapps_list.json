@@ -60,7 +60,7 @@
   {"name": "ATS Bridge", "description": "ATS/ATS20 bridge for self transfers of ATS to ATS20", "url": "https://bridge.artis.network/", "category": "Tool"},
   {"name": "dForce USDx", "description": "A decentralized and synthetic indexed stablecoin with interest bearing capability", "url": "https://usdx.dforce.network/", "category": "Finance"},
   {"name": "LENDF.ME", "description": "Algorithmic money markets for dForce USDx", "url": "https://www.lendf.me/", "category": "Finance"},
-  {"name": "1inch.exchange", "description": "DEX Aggregator with the best prices on the market. Achieving best rates by splitting orders among multiple DEXes in one single transaction.", "url": "https://1inch.exchange", "category": "Exchange"},
+  {"name": "1inch.exchange", "description": "DEX Aggregator with the best prices on the market. Achieving best rates by splitting orders among multiple DEXes in one single transaction.", "url": "https://app.1inch.io/", "category": "Exchange"},
   {"name": "SpiderDEX", "description": "Decentralized exchange for crypto collectibles.", "url": "https://www.spiderdex.com", "category": "Exchange"},
   {"name": "DeFi Money Market (DMM)", "description": "Earn interest on your crypto through tokenized real world assets", "url": "https://app.defimoneymarket.com", "category": "Finance"},
   {"name": "Idle Finance", "description": "DeFi Yield Aggregator and Rebalancing Protocol", "url": "https://idle.finance", "category": "Finance"},
@@ -92,5 +92,7 @@
   {"name": "BeInCrypto", "description": "Unbiased crypto news", "url": "https://beincrypto.com/", "category": "News"},
   {"name": "The Defiant", "description": "The essential information platform for the open economy", "url": "https://thedefiant.io/", "category": "News"},
   {"name": "Verse DEX", "description": "Bitcoin.com's multichain Verse DEX aims to bring everyone permissionless and non-custodial trading access, with a special focus on newcomers to DeFi.", "url": "https://verse.bitcoin.com/", "category": "Exchange"},
-  {"name": "DAOHaus", "description": "Create DAOs with the Moloch framework", "url": "https://admin.daohaus.fun/", "category": "Finance"}
+  {"name": "DAOHaus", "description": "Create and participate in DAOs with the Moloch framework", "url": "https://admin.daohaus.fun/", "category": "Finance"},
+  {"name": "Sushi Swap", "description": "Cross-chain DEX", "url": "https://app.sushi.com/", "category": "Finance"}
+
 ]

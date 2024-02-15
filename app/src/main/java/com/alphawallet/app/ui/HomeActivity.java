@@ -584,8 +584,8 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
             homeReceiver.register();
         }
         initViews();
-
-        handler.post(() ->
+        //Auto clipboard grab disabled for closed tests
+       /* handler.post(() ->
         {
             //check clipboard
             String magicLink = ImportTokenActivity.getMagiclinkFromClipboard(this);
@@ -593,7 +593,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
             {
                 viewModel.showImportLink(this, magicLink);
             }
-        });
+        });*/
     }
 
     @Override

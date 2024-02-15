@@ -79,7 +79,7 @@
     <string name="transaction_succeeded">Transacción realizada correctamente</string>
     <string name="NA">N/A</string>
     <string name="error_wallet_not_selected">La cartera no está seleccionada</string>
-    <string name="no_transactions_yet">Las actividades aparecerán aquí</string>
+    <string name="no_transactions_yet">Las transacciones se registran aquí</string>
     <string name="title_dialog_sending">Enviando...</string>
     <string name="scan_qr">Obtener dirección a partir del código QR</string>
     <string name="info_gas_price">Cuanto más alto sea el precio del gas, más cara será la tarifa de tu transacción, pero más rápido se procesará por la red Ethereum.</string>
@@ -734,7 +734,7 @@
     <string name="action_save_alert">Guardar Alerta</string>
     <string name="alerts_will_appear_here">Las alertas aparecerán aquí.</string>
     <string name="token_text">Token</string>
-    <string name="buy_eth">Comprar ETH</string>
+    <string name="buy_eth">Recibe Tokens</string>
     <string name="reload_token_data_desc">"Borrar caché de datos de token. AW recargará el estado de la cartera. No afecta tus llaves o activos. "</string>
     <string name="text_speedup_note">Note que acelerar esta transacción no garantiza que la original será acelerada. Si es exitosa, le será cobrada la tarifa de la red.</string>
     <string name="text_cancel_note">Note que esta transacción no garantiza que la original será cancelada. Si es exitosa, le será cobrada la tarifa de la red.</string>
@@ -789,7 +789,7 @@
     <string name="swap">Swap</string>
     <string name="action_send_to_this_address">Enviar a esta dirección</string>
     <string name="stay_updated">Stay Updated</string>
-    <string name="email_prompt_hint">Enviamos correos anunciando nuesvas versiones y comunicados importantes, ¿te interesa recibirlos?</string>
+    <string name="email_prompt_hint">Visita el homepage de la cartera para subscribirte al newsletter con noticias y lanzamientos.</string>
     <string name="hint_email_address">eMail</string>
     <string name="action_want_to_receive_email">Quiero recibir esos correos</string>
     <string name="email_is_invalid">Por favor ingrese un email válido</string>
@@ -994,4 +994,5 @@
     <string name="override">Anular</string>
     <string name="developer_override">Anulación del Desarrollador</string>
     <string name="override_warning_text">Es posible que esté a punto de firmar una transacción sin saberlo, lo que podría vaciar sus fondos. Es posible que desee firmar el código de bytes como desarrollador y puede anular esta advertencia si configura el modo de desarrollador en la configuración avanzada.</string>
+    <string name="aw_participate">Puedes recibir tokens al participar en este proyecto con ambos trabajo y crypto. Los tokens DAO te dan poderes de voto en las decisiones del proyecto, incluyendo como se usan esos fondos para avanzar el proyecto. Conoce más en el navegador Daap.</string>
 </resources>

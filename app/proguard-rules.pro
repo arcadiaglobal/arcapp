@@ -71,7 +71,7 @@
 -keep class com.alphawallet.app.web3.** { *; }
 -keep class com.alphawallet.app.web3j.** { *; }
 -keep class com.alphawallet.app.entity.** { *; }
--keep class io.stormbird.wallet.model.api.** { *; }
+-keep class global.arcadia.wallet.model.api.** { *; }
 
 -keep public class java.beans.* { *; }
 -keep class jnr.unixsocket.* { *; }

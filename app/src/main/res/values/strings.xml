@@ -91,7 +91,7 @@
     <string name="transaction_succeeded">Transaction successful</string>
     <string name="NA">N/A</string>
     <string name="error_wallet_not_selected">Wallet is not selected</string>
-    <string name="no_transactions_yet">Activities will appear here</string>
+    <string name="no_transactions_yet">Transactions are logged here</string>
     <string name="unknown_balance_without_symbol" translatable="false">--</string>
     <string name="dummy_transaction_value" translatable="false">&#45;&#45;</string>
     <string name="title_dialog_sending">Sending…</string>
@@ -447,7 +447,7 @@
     <string name="network">Networks</string>
     <string name="select_active_networks">Select Active Networks</string>
     <string name="title_enabled_networks">Enabled Networks (%s)</string>
-    <string name="collectibles">Collectibles</string>
+    <string name="collectibles">NFTs</string>
     <string name="token_function">Token Function</string>
     <string name="channel_description">Alphawallet notification channel</string>
     <string name="error_camera_permission_denied">Permission to use the camera was denied.</string>
@@ -795,7 +795,7 @@
     <string name="action_save_alert">Save Alert</string>
     <string name="alerts_will_appear_here">Alerts will appear here</string>
     <string name="token_text">Token</string>
-    <string name="buy_eth">Buy ETH</string>
+    <string name="buy_eth">Get Tokens</string>
     <string name="reload_token_data_desc">Reset all cached token data (eg recorded balance etc). AlphaWallet will re-load the current status of your wallet. Doesn\'t affect the keys or assets.</string>
 
     <string name="title_activity_add_custom_rpcnetwork">Add Custom RPC Network</string>
@@ -861,7 +861,7 @@
     <string name="swap">Swap</string>
     <string name="action_send_to_this_address">Send to this Address</string>
     <string name="stay_updated">Stay Updated</string>
-    <string name="email_prompt_hint">We send an email announcing major features. Would you like to receive such emails? (max 1 email per week)</string>
+    <string name="email_prompt_hint">Visit our wallet\'s homepage to subscribe to our newsletter with news and releases.</string>
     <string name="hint_email_address">Email Address</string>
     <string name="action_want_to_receive_email">I want to receive such emails</string>
     <string name="email_is_invalid">Please provide valid email address</string>
@@ -878,8 +878,8 @@
     <string name="token_name_hint">Search token</string>
     <string name="assets">Assets</string>
     <string name="defi_header" translatable="false">DeFi</string>
-    <string name="governance_header">Governance</string>
-    <string name="collectibles_header">Collectibles</string>
+    <string name="governance_header">DAO</string>
+    <string name="collectibles_header">NFTs</string>
     <string name="whats_new">What\'s new?</string>
     <string name="price_alert_indicator_below">Below</string>
     <string name="price_alert_indicator_above">Above</string>
@@ -1072,4 +1072,5 @@
     <string name="override">Override</string>
     <string name="developer_override">Developer Override</string>
     <string name="override_warning_text">You might be about to unknowingly sign a transaction, which could empty your funds. You may want to sign bytecode as a developer, and you can override this warning if you set developer mode in Advanced settings.</string>
+    <string name="aw_participate">You can get tokens by participating on this project with either work and cryptoassets. DAO tokens give you voting power in the decisions of the project, including how your funds are used to advance it. Learn more in the Dapp browser\'s homepage.</string>
 </resources>

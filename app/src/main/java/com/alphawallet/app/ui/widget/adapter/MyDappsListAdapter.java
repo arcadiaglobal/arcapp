@@ -80,7 +80,7 @@ public class MyDappsListAdapter extends RecyclerView.Adapter<MyDappsListAdapter.
             Glide.with(viewHolder.icon.getContext())
                     .load(favicon)
                     .apply(new RequestOptions().circleCrop())
-                    .apply(new RequestOptions().placeholder(R.drawable.ic_logo))
+                    .apply(new RequestOptions().placeholder(R.drawable.aw_tab_browser))
                     .into(viewHolder.icon);
 
             viewHolder.icon.setOnClickListener(v -> {

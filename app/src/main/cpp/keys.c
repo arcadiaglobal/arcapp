@@ -156,7 +156,7 @@ Java_com_alphawallet_app_repository_KeyProviderJNIImpl_getMailchimpKey(JNIEnv *e
 #if (HAS_KEYS == 1)
     return getDecryptedKey(env, mailchimpKey);
 #else
-    const jstring key = "--";
+    const jstring key = "";
     return (*env)->NewStringUTF(env, key);
 #endif
 }

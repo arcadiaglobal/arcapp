@@ -33,7 +33,7 @@ public class DappBrowserUtils
     private static final String DAPPS_LIST_FILENAME = "dapps_list.json";
     private static final String MY_DAPPS_FILE = "mydapps";
     private static final String DAPPS_HISTORY_FILE = "dappshistory";
-    private static final String DEFAULT_HOMEPAGE = "https://dao.arcadia.global/";
+    private static final String DEFAULT_HOMEPAGE = "https://wallet.arcadia.global/web3-directory/";
     private static final String POLYGON_HOMEPAGE = "https://alphawallet.com/browser-item-category/polygon/";
 
     //TODO: Move to database

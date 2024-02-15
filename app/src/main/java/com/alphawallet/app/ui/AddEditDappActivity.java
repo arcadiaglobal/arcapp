@@ -72,7 +72,7 @@ public class AddEditDappActivity extends BaseActivity
             favicon = DappBrowserUtils.getIconUrl(visibleUrl);
             Glide.with(this)
                     .load(favicon)
-                    .apply(new RequestOptions().placeholder(R.drawable.ic_logo))
+                    .apply(new RequestOptions().placeholder(R.drawable.aw_tab_browser))
                     .into(icon);
         }
 
@@ -85,7 +85,7 @@ public class AddEditDappActivity extends BaseActivity
                 name.setText(dapp.getName());
                 name.getEditText().setSelection(0);
                 url.setText(dapp.getUrl());
-                url.getEditText().setSelection(0);
+                url.getEditText().setSelection(1); //Fixes duplicate URL in title field
                 button.setOnClickListener(v -> {
                     dapp.setName(name.getText().toString());
                     dapp.setUrl(url.getText().toString());

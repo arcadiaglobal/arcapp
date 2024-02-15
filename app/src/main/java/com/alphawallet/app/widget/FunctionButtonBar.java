@@ -243,10 +243,11 @@ public class FunctionButtonBar extends LinearLayout implements AdapterView.OnIte
         {
             handleUseClick(action);
         }
-        else if (action.buttonId == R.string.action_buy_crypto)
+        // Suspend opening broken Ramp link
+        /*else if (action.buttonId == R.string.action_buy_crypto)
         {
             buyFunctionInterface.handleBuyFunction(token);
-        }
+        }*/
         else if (action.buttonId == R.string.generate_payment_request)
         {
             buyFunctionInterface.handleGeneratePaymentRequest(token);

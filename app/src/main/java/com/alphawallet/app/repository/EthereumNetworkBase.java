@@ -403,6 +403,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
             put(LINEA_ID, R.drawable.ic_icons_linea);
             put(LINEA_TEST_ID, R.drawable.ic_icons_linea_testnet);
             put(HOLESKY_ID, R.drawable.ic_icons_holesky);
+            //put(AXX_ID, R.drawable.ic_icons_axx);
         }
     };
 

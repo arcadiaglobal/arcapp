@@ -73,10 +73,10 @@ android {
         }
     }
     defaultConfig {
-        versionCode 252
-        versionName "3.73"
+        versionCode 1
+        versionName "1.1.8"
 
-        applicationId "io.stormbird.wallet"
+        applicationId 'global.arcadia.wallet'
         minSdkVersion 24
         targetSdkVersion 33
         compileSdk 33
@@ -85,7 +85,7 @@ android {
         def XInfuraAPI = "XInfuraAPI"
         //Put your Infura key here, NB with over 30 - 40 users this API key will rate limit, it's only here for bootstrapping a free build
         def DEFAULT_INFURA_API_KEY = "\"9ab8914efda0442696d7ddad38422c99\""
-        def DEFAULT_OPENSEA_API_KEY = "\"...\""; //Put your OpenSea developer API key in here, otherwise you are reliant on the backup NFT fetch method (which usually works ok)
+        def DEFAULT_OPENSEA_API_KEY = "\"fec799fd211b44d59562019b125b6073\""; //Put your OpenSea developer API key in here, otherwise you are reliant on the backup NFT fetch method (which usually works ok)
         def DEFAULT_POLYGONSCAN_API_KEY = "\"...\""; //Put your Polygonscan developer API key in here to get access to Polygon/Mumbai token discovery and transactions
         def DEFUALT_WALLETCONNECT_PROJECT_ID = "\"40c6071febfd93f4fe485c232a8a4cd9\""
         def DEFAULT_AURORA_API_KEY = "\"HFDDY5BNKGXBB82DE2G8S64C3C41B76PYI\""; //Put your Aurorascan.dev API key here - this one will rate limit as it is common
@@ -162,6 +162,7 @@ android {
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
 
             if (signingConfigs.release.storeFile) {
                 signingConfig signingConfigs.release
@@ -320,6 +321,7 @@ dependencies {
     // Update when resolved.
     //noinspection GradleDependency
     implementation 'com.google.firebase:firebase-messaging:21.1.0'
+
 
 
     //
