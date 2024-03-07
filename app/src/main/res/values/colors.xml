@@ -27,7 +27,7 @@
     <!-- ?colorOnPrimary -->
     <color name="brand_inverse">@color/white</color>
     <!-- ?colorAccent -->
-    <color name="accent">@color/ag_yellow</color>
+    <color name="accent">@color/ag_orange</color>
     <!-- ?colorError -->
     <color name="error">@color/danger</color>
     <!-- ?colorOnError -->
@@ -35,7 +35,7 @@
     <!-- ?android:colorBackground -->
     <color name="background">@color/white</color>
     <!-- ?colorOnBackground -->
-    <color name="background_inverse">@color/black</color>
+    <color name="background_inverse">@color/ag_d0</color>
     <!-- ?colorSurface -->
     <color name="surface">@color/alabaster</color>
     <!-- ?colorSurfaceSecondary -->

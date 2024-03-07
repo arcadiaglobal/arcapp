@@ -28,12 +28,13 @@
             app:layout_scrollFlags="scroll|snap" />
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout"
-            style="@style/Aw.Component.TabLayout.Scrollable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            app:layout_scrollFlags="enterAlways" />
+                android:id="@+id/tab_layout"
+                style="@style/Aw.Component.TabLayout.Scrollable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:contentDescription="Token type tabs"
+                app:layout_scrollFlags="enterAlways" />
 
         <View style="@style/Aw.Component.Separator" />
 

@@ -26,7 +26,7 @@
     <string name="unknown_error">Se ha producido un error.</string>
     <string name="no_tokens">No se han encontrado tokens.</string>
     <!-- Titles -->
-    <string name="title_my_address">Mi dirección</string>
+    <string name="title_my_address">Regresar</string>
     <string name="title_activity_send">Enviar</string>
     <string name="title_activity_confirmation">Confirmar</string>
     <string name="title_transaction_details">Detalles de la transacción</string>
@@ -995,4 +995,7 @@
     <string name="developer_override">Anulación del Desarrollador</string>
     <string name="override_warning_text">Es posible que esté a punto de firmar una transacción sin saberlo, lo que podría vaciar sus fondos. Es posible que desee firmar el código de bytes como desarrollador y puede anular esta advertencia si configura el modo de desarrollador en la configuración avanzada.</string>
     <string name="aw_participate">Puedes recibir tokens al participar en este proyecto con ambos trabajo y crypto. Los tokens DAO te dan poderes de voto en las decisiones del proyecto, incluyendo como se usan esos fondos para avanzar el proyecto. Conoce más en el navegador Daap.</string>
+    <string name="browser_back">Regresar</string>
+    <string name="browser_forward">Avanzar</string>
+    <string name="browser_home">Inicio</string>
 </resources>

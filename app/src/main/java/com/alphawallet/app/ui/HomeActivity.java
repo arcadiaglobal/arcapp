@@ -337,8 +337,12 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         {
             Timber.w(e);
         }
+        // ATTENTION: This was auto-generated to handle app links from a.w.a.g.
+        Intent appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
     }
-
+    // EO awag
     private void onUpdateAvailable(String availableVersion)
     {
         externalUpdateReady(availableVersion);

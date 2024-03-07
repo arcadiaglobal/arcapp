@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <uses-feature
             android:name="android.hardware.fingerprint"
@@ -51,31 +51,21 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter android:autoVerify="true">
+            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="http" />
-                <data android:scheme="https" />
-                <data android:host="aw.app" />
-                <data android:host="www.aw.app" />
-                <data android:pathPrefix="/" />
-            </intent-filter>
-            <intent-filter>
                 <data android:scheme="wc" />
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
             <intent-filter>
-                <data android:scheme="awallet" />
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="awallet" />
             </intent-filter>
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.VIEW" />
@@ -96,6 +86,24 @@
                 <data android:pathPattern="/.*\\.xml" />
                 <data android:pathPattern="/.*\\..*\\.xml" />
                 <data android:pathPattern="/.*\\..*\\..*\\.xml" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:host="wallet.arcadia.global" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https" />
+                <data android:host="wallet.arcadia.global" />
             </intent-filter>
         </activity>
 
@@ -128,7 +136,7 @@
 
         <service
                 android:name=".service.WalletConnectV2Service"
-                android:enabled="true"/>
+                android:enabled="true" />
 
         <service
                 android:name=".service.AlphaWalletFirebaseMessagingService"

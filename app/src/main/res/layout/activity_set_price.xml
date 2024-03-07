@@ -85,12 +85,13 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    style="@style/Aw.Typography.Label"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginBottom="@dimen/mini_4"
-                                    android:text="@string/price_per_ticket" />
+                                        style="@style/Aw.Typography.Label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="@dimen/mini_4"
+                                        android:text="@string/price_per_ticket"
+                                        android:textColor="@color/ag_gs3" />
 
                                 <RelativeLayout
                                     android:layout_width="match_parent"
@@ -144,12 +145,13 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    style="@style/Aw.Typography.Label"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginBottom="@dimen/mini_4"
-                                    android:text="@string/quantity_of_tickets" />
+                                        style="@style/Aw.Typography.Label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="@dimen/mini_4"
+                                        android:text="@string/quantity_of_tickets"
+                                        android:textColor="@color/ag_gs2" />
 
                                 <LinearLayout
                                     android:id="@+id/layout_ticket_quantity"

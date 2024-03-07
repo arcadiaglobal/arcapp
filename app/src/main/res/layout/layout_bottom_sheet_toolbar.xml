@@ -17,14 +17,16 @@
         android:minHeight="@dimen/action_sheet_header">
 
         <ImageView
-            android:id="@+id/image_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/small_12"
-            android:contentDescription="@string/action_close"
-            android:src="@drawable/ic_close"
-            app:tint="?colorControlNormal" />
+                android:id="@+id/image_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/action_close"
+                android:minWidth="48dip"
+                android:minHeight="48dip"
+                android:padding="@dimen/dp14"
+                android:src="@drawable/ic_close"
+                app:tint="?colorControlNormal" />
 
         <TextView
             android:id="@+id/title"

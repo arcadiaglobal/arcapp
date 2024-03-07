@@ -26,16 +26,18 @@
             tools:text="Swap via PancakeSwap" />
 
         <TextView
-            android:id="@+id/tag"
-            style="@style/Aw.Typography.Label.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/tiny_8"
-            android:layout_toEndOf="@id/provider"
-            android:textColor="?colorPrimary"
-            android:visibility="gone"
-            tools:text="RECOMMENDED"
-            tools:visibility="visible" />
+                android:id="@+id/tag"
+                style="@style/Aw.Typography.Label.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/tiny_8"
+                android:layout_toEndOf="@id/provider"
+                android:contentDescription="@null"
+                android:importantForAccessibility="no"
+                android:textColor="?colorPrimary"
+                android:visibility="gone"
+                tools:text="RECOMMENDED"
+                tools:visibility="visible" />
 
         <LinearLayout
             android:id="@+id/layout_title"
@@ -108,11 +110,12 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_arrow_right" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/action_next"
+                android:src="@drawable/ic_arrow_right" />
 
     </RelativeLayout>
 

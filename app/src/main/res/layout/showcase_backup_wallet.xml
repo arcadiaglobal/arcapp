@@ -42,24 +42,26 @@
                 android:text="@string/nudge_user_to_backup_wallet" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_close"
-                style="@style/Aw.Component.Button.Primary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/giant_40"
-                android:text="@string/action_close" />
+                    android:id="@+id/btn_close"
+                    style="@style/Aw.Component.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/giant_40"
+                    android:contentDescription="@string/action_close"
+                    android:text="@string/action_close" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="20dp"
-        android:layout_below="@id/layout_card"
-        android:layout_alignEnd="@id/layout_card"
-        android:layout_marginEnd="@dimen/small_12"
-        android:rotation="180"
-        android:src="@drawable/showcase_dialog_tail"
-        app:tint="?colorBackgroundFloating" />
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/layout_card"
+            android:layout_alignEnd="@id/layout_card"
+            android:layout_marginEnd="@dimen/small_12"
+            android:contentDescription="@null"
+            android:rotation="180"
+            android:src="@drawable/showcase_dialog_tail"
+            app:tint="?colorBackgroundFloating" />
 
 </RelativeLayout>

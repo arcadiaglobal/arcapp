@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_update"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/standard_16"
-    android:layout_marginBottom="@dimen/standard_16"
-    android:elevation="0dp"
-    android:theme="@style/AppTheme.DarkOverlay"
-    android:visibility="gone"
-    app:cardBackgroundColor="@color/mine"
-    app:cardCornerRadius="@dimen/dialog_corner_radius"
-    app:contentPadding="@dimen/standard_16"
-    app:strokeWidth="0dp">
-
-    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        android:gravity="start"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="@dimen/standard_16"
+        android:layout_marginBottom="@dimen/standard_16"
+        android:elevation="0dp"
+        android:theme="@style/AppTheme.DarkOverlay"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/ag_magenta"
+        app:cardCornerRadius="@dimen/dialog_corner_radius"
+        app:contentPadding="@dimen/standard_16"
+        app:strokeWidth="0dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:gravity="start"
+            android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_title"
-            style="@style/Aw.Typography.Title.SemiBold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/small_12"
-            android:text="@string/new_version_title" />
+                android:id="@+id/text_title"
+                style="@style/Aw.Typography.Title.SemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_12"
+                android:text="@string/new_version_title" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/text_detail_current"
-                style="@style/Aw.Typography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Installed: 123" />
+                android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/text_detail_available"
-                style="@style/Aw.Typography"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_12"
-                tools:text="Available: 130" />
+                    android:id="@+id/text_detail_current"
+                    style="@style/Aw.Typography"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Installed: 123" />
+
+            <TextView
+                    android:id="@+id/text_detail_available"
+                    style="@style/Aw.Typography"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_12"
+                    tools:text="Available: 130" />
 
         </LinearLayout>
 

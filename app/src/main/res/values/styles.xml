@@ -138,7 +138,7 @@
     </style>
 
     <style name="Aw.Component.Button.TextIcon">
-        <item name="android:backgroundTint">?colorSurfaceSecondary</item>
+        <item name="android:backgroundTint">?colorSurfaceDark</item>
         <item name="android:maxLines">2</item>
         <item name="android:padding">@dimen/standard_16</item>
         <item name="android:textSize">@dimen/sp17</item>
@@ -147,7 +147,7 @@
         <item name="iconTint">?colorAccent</item>
         <item name="android:layout_margin">@dimen/cozy_20</item>
         <item name="cornerRadius">5dp</item>
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
         <item name="strokeWidth">0dp</item>
     </style>
 

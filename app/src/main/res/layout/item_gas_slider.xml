@@ -13,33 +13,35 @@
         custom:headerText="@string/label_gas_price_max" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/tiny_8">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dip"
+            android:orientation="horizontal"
+            android:padding="@dimen/tiny_8">
 
         <androidx.appcompat.widget.AppCompatSeekBar
-            android:id="@+id/gas_price_slider"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_weight="4"
-            android:max="90"
-            android:paddingTop="@dimen/tiny_8"
-            android:paddingBottom="@dimen/tiny_8"
-            android:progress="10" />
+                android:id="@+id/gas_price_slider"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="48dip"
+                android:layout_weight="4"
+                android:max="90"
+                android:paddingTop="@dimen/tiny_8"
+                android:paddingBottom="@dimen/tiny_8"
+                android:progress="10" />
 
         <EditText
-            android:id="@+id/gas_price_entry"
-            style="@style/Aw.Typography.Caption"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/background_password_entry"
-            android:gravity="end|center_vertical"
-            android:inputType="numberDecimal"
-            android:paddingEnd="@dimen/tiny_8"
-            tools:text="20" />
+                android:id="@+id/gas_price_entry"
+                style="@style/Aw.Typography.Caption"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/background_password_entry"
+                android:gravity="end|center_vertical"
+                android:inputType="numberDecimal"
+                android:minHeight="@dimen/double_base_48"
+                android:paddingEnd="@dimen/tiny_8"
+                tools:text="20" />
 
     </LinearLayout>
 
@@ -66,7 +68,7 @@
                 android:id="@+id/priority_fee_slider"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="0dp"
-                android:layout_height="36dp"
+                android:layout_height="48dip"
                 android:layout_weight="4"
                 android:max="90"
                 android:paddingTop="@dimen/tiny_8"
@@ -103,15 +105,15 @@
         android:padding="@dimen/tiny_8">
 
         <androidx.appcompat.widget.AppCompatSeekBar
-            android:id="@+id/gas_limit_slider"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_weight="4"
-            android:max="90"
-            android:paddingTop="@dimen/tiny_8"
-            android:paddingBottom="@dimen/tiny_8"
-            android:progress="10" />
+                android:id="@+id/gas_limit_slider"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="48dip"
+                android:layout_weight="4"
+                android:max="90"
+                android:paddingTop="@dimen/tiny_8"
+                android:paddingBottom="@dimen/tiny_8"
+                android:progress="10" />
 
         <EditText
             android:id="@+id/gas_limit_entry"
@@ -145,16 +147,16 @@
     </FrameLayout>
 
     <EditText
-        android:id="@+id/nonce_entry"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/small_12"
-        android:layout_weight="1"
-        android:background="@drawable/background_password_entry"
-        android:gravity="start|center_vertical"
-        android:hint="@string/nonce_optional"
-        android:inputType="number"
-        android:padding="@dimen/small_12" />
+            android:id="@+id/nonce_entry"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_margin="@dimen/small_12"
+            android:layout_weight="1"
+            android:background="@drawable/background_password_entry"
+            android:gravity="start|center_vertical"
+            android:hint="@string/nonce_optional"
+            android:inputType="number"
+            android:padding="@dimen/small_12" />
 
 
 </LinearLayout>

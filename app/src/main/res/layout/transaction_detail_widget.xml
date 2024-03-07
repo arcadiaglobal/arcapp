@@ -27,7 +27,8 @@
                 android:layout_weight="@integer/widget_label"
                 android:gravity="start"
                 android:lines="2"
-                android:text="@string/title_transaction_details" />
+                android:text="@string/title_transaction_details"
+                android:textSize="16sp" />
 
         <LinearLayout
                 android:layout_width="0dp"
@@ -62,6 +63,7 @@
                 android:layout_gravity="start"
                 android:layout_weight="@integer/widget_control"
                 android:background="@color/transparent"
+                android:contentDescription="@string/action_view"
                 android:padding="@dimen/mini_4"
                 android:src="@drawable/ic_expand_more"
                 app:tint="?colorControlNormal" />
@@ -92,13 +94,16 @@
                     android:layout_gravity="start|center_vertical"
                     android:layout_weight="@integer/widget_content"
                     android:text="@string/title_transaction_details"
+                    android:textSize="@dimen/sp16"
                     android:visibility="visible" />
 
             <androidx.viewpager.widget.ViewPager
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_marginHorizontal="@dimen/small_12"
-                    android:layout_weight="@integer/widget_label" />
+                    android:layout_weight="@integer/widget_label"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no" />
 
             <ImageView
                     android:layout_width="0dp"
@@ -106,6 +111,7 @@
                     android:layout_gravity="start"
                     android:layout_weight="@integer/widget_control"
                     android:background="@color/transparent"
+                    android:contentDescription="@string/action_view"
                     android:padding="@dimen/mini_4"
                     android:src="@drawable/ic_expand_less_black"
                     app:tint="?colorControlNormal" />

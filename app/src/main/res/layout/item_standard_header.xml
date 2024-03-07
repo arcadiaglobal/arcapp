@@ -27,15 +27,17 @@
         android:visibility="gone" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_material"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="@dimen/tiny_8"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="gone" />
+            android:id="@+id/switch_material"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/tiny_8"
+            android:clickable="true"
+            android:focusable="true"
+            android:minWidth="48dip"
+            android:minHeight="48dip"
+            android:visibility="gone" />
 
     <TextView
         android:id="@+id/text_control"
@@ -51,15 +53,17 @@
         tools:visibility="visible" />
 
     <ImageView
-        android:id="@+id/image_control"
-        android:layout_width="@dimen/token_icon_small"
-        android:layout_height="@dimen/token_icon_small"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="@dimen/small_12"
-        android:visibility="gone"
-        app:tint="?colorControlNormal"
-        tools:src="@drawable/ic_swap_horizontal"
-        tools:visibility="visible" />
+            android:id="@+id/image_control"
+            android:layout_width="@dimen/token_icon_small"
+            android:layout_height="@dimen/token_icon_small"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:minWidth="48dip"
+            android:minHeight="48dip"
+            android:visibility="gone"
+            app:tint="?colorControlNormal"
+            tools:src="@drawable/ic_swap_horizontal"
+            tools:visibility="visible" />
 
 </RelativeLayout>

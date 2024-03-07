@@ -8,11 +8,14 @@
     android:paddingBottom="@dimen/base_24">
 
     <com.alphawallet.app.widget.TokenIcon
-        android:id="@+id/token_icon"
-        android:layout_width="@dimen/token_icon"
-        android:layout_height="@dimen/token_icon"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_token_eth" />
+            android:id="@+id/token_icon"
+            android:layout_width="@dimen/token_icon"
+            android:layout_height="@dimen/token_icon"
+            android:layout_centerHorizontal="true"
+            android:importantForAccessibility="no"
+            android:minWidth="48dip"
+            android:minHeight="48dip"
+            android:src="@drawable/ic_token_eth" />
 
     <LinearLayout
         android:id="@+id/layout_token_amount"

@@ -25,27 +25,29 @@
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/layout_chain_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/standard_16"
-                android:layout_marginTop="@dimen/standard_16"
-                custom:cardBackgroundColor="?colorSurfaceTertiary"
-                custom:cardCornerRadius="@dimen/standard_16"
-                custom:contentPaddingBottom="@dimen/mini_4"
-                custom:contentPaddingLeft="@dimen/tiny_8"
-                custom:contentPaddingRight="@dimen/tiny_8"
-                custom:contentPaddingTop="@dimen/mini_4">
-
-                <TextView
-                    android:id="@+id/chain_name"
+                    android:id="@+id/layout_chain_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:drawablePadding="@dimen/mini_4"
-                    android:gravity="center_vertical"
-                    custom:drawableLeftCompat="@drawable/ic_radio_on"
-                    tools:text="Ethereum" />
+                    android:layout_marginHorizontal="@dimen/standard_16"
+                    android:layout_marginTop="@dimen/standard_16"
+                    android:minHeight="@dimen/double_base_48"
+                    custom:cardBackgroundColor="?colorSurfaceTertiary"
+                    custom:cardCornerRadius="@dimen/dp24"
+                    custom:contentPaddingBottom="@dimen/mini_4"
+                    custom:contentPaddingLeft="@dimen/tiny_8"
+                    custom:contentPaddingRight="@dimen/tiny_8"
+                    custom:contentPaddingTop="@dimen/mini_4">
+
+                <TextView
+                        android:id="@+id/chain_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:drawablePadding="@dimen/mini_4"
+                        android:gravity="center|center_horizontal"
+                        android:minHeight="@dimen/double_base_48"
+                        custom:drawableLeftCompat="@drawable/ic_radio_on"
+                        tools:text="Ethereum" />
 
             </com.google.android.material.card.MaterialCardView>
 

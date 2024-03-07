@@ -5,16 +5,16 @@
     <color name="accent">@color/ag_yellow</color>
     <color name="error">@color/ag_red</color>
     <color name="error_inverse">@color/white</color>
-    <color name="background">@color/black</color>
+    <color name="background">@color/ag_d0</color>
     <color name="background_inverse">@color/white</color>
-    <color name="surface">@color/ag_gs1</color>
-    <color name="surface_secondary">@color/ag_gs2</color>
-    <color name="surface_tertiary">@color/ag_gs3</color>
-    <color name="surface_quaternary">@color/ag_gs4</color>
-    <color name="surface_quinary">@color/ag_gs5</color>
+    <color name="surface">@color/ag_d0</color>
+    <color name="surface_secondary">@color/ag_d1</color>
+    <color name="surface_tertiary">@color/ag_d2</color>
+    <color name="surface_quaternary">@color/ag_d3</color>
+    <color name="surface_quinary">@color/ag_d4</color>
     <color name="surface_inverse">@color/white</color>
     <color name="surface_dark">@color/white</color>
-    <color name="background_floating">@color/mine</color>
+    <color name="background_floating">@color/ag_d1</color>
     <color name="control">@color/white</color>
     <color name="control_activated">@color/accent</color>
     <color name="control_highlight">@color/accent</color>
@@ -22,10 +22,10 @@
     <color name="text_primary_inverse">@color/cod</color>
     <color name="text_secondary">@color/dusty</color>
     <color name="text_secondary_inverse">@color/cod</color>
-    <color name="active_session_card_background">@color/mine</color>
+    <color name="active_session_card_background">@color/ag_d1</color>
     <color name="surface_translucent">@color/translucent_dark</color>
     <!-- Required for placing behind icons in dark mode, transparent in light mode as background is light -->
     <color name="dark_mode_icon_background_compensate">@color/mercury</color>
     <color name="dark_mode_token_icon_background_compensate">@color/mine</color>
-    <color name="surface_search">@color/mine</color>
+    <color name="surface_search">@color/black</color>
 </resources>

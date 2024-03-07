@@ -14,70 +14,77 @@
         custom:headerText="@string/recipient" />
 
     <RelativeLayout
-        android:id="@+id/box_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout_header"
-        android:layout_marginStart="@dimen/standard_16"
-        android:layout_marginTop="@dimen/standard_16"
-        android:layout_marginEnd="@dimen/standard_16"
-        android:background="@drawable/background_password_entry">
-
-        <AutoCompleteTextView
-            android:id="@+id/edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/img_scan_qr"
-            android:background="@color/transparent"
-            android:inputType="textNoSuggestions"
-            android:lines="1"
-            android:maxLines="1"
-            android:paddingStart="@dimen/standard_16"
-            android:paddingTop="@dimen/small_12"
-            android:paddingEnd="@dimen/tiny_8"
-            android:paddingBottom="@dimen/small_12"
-            tools:hint="0x12345678...abcd1234" />
-
-        <ImageButton
-            android:id="@+id/img_scan_qr"
+            android:id="@+id/box_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="@color/transparent"
-            android:contentDescription="@string/scan_qr"
-            android:padding="@dimen/small_12"
-            android:src="@drawable/ic_camera_scan"
-            app:tint="?colorControlNormal" />
+            android:layout_below="@id/layout_header"
+            android:layout_marginStart="@dimen/standard_16"
+            android:layout_marginTop="@dimen/standard_16"
+            android:layout_marginEnd="@dimen/standard_16"
+            android:background="@drawable/background_password_entry"
+            android:labelFor="@id/label"
+            android:minHeight="@dimen/double_base_48">
+
+        <AutoCompleteTextView
+                android:id="@+id/edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/img_scan_qr"
+                android:background="@color/transparent"
+                android:hint="@string/address"
+                android:inputType="textNoSuggestions"
+                android:lines="1"
+                android:maxLines="1"
+                android:minHeight="@dimen/double_base_48"
+                android:paddingStart="@dimen/standard_16"
+                android:paddingTop="@dimen/small_12"
+                android:paddingEnd="@dimen/tiny_8"
+                android:paddingBottom="@dimen/small_12"
+                tools:hint="0x12345678...abcd1234" />
+
+        <ImageButton
+                android:id="@+id/img_scan_qr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:contentDescription="@string/scan_qr"
+                android:padding="@dimen/small_12"
+                android:src="@drawable/ic_camera_scan"
+                app:tint="?colorControlNormal" />
 
     </RelativeLayout>
 
     <TextView
-        style="@style/Aw.Typography.Label.Small"
-        android:id="@+id/label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/box_layout"
-        android:layout_marginStart="@dimen/comfy_28"
-        android:layout_marginTop="-9dp"
-        android:background="?colorSurface"
-        android:paddingLeft="@dimen/mini_4"
-        android:paddingRight="@dimen/mini_4"
-        android:visibility="visible"
-        tools:text="ENS Name" />
+            android:id="@+id/label"
+            style="@style/Aw.Typography.Label.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/box_layout"
+            android:layout_marginStart="@dimen/comfy_28"
+            android:layout_marginTop="-9dp"
+            android:background="@color/surface"
+            android:paddingLeft="@dimen/mini_4"
+            android:paddingRight="@dimen/mini_4"
+            android:textColor="@color/text_primary"
+            android:visibility="visible"
+            tools:text="ENS Name" />
 
     <TextView
-        style="@style/Aw.Typography.Control"
-        android:id="@+id/text_paste"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/box_layout"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/small_12"
-        android:padding="@dimen/mini_4"
-        android:text="@string/paste"
-        android:visibility="visible" />
+            android:id="@+id/text_paste"
+            style="@style/Aw.Typography.Control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/box_layout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/small_12"
+            android:gravity="center"
+            android:minHeight="48dip"
+            android:padding="@dimen/mini_4"
+            android:text="@string/paste"
+            android:visibility="visible" />
 
     <LinearLayout
         android:layout_width="wrap_content"

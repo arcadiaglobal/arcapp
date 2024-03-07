@@ -19,10 +19,10 @@ import com.alphawallet.token.tools.ParseMagicLink;
 
 public class DeepLinkService
 {
-    public static final String AW_APP = "https://aw.app/";
+    public static final String AW_APP = "https://wallet.arcadia.global/";
     public static final String WC_PREFIX = "wc?uri=";
     public static final String WC_COMMAND = "wc:";
-    public static final String AW_PREFIX = "awallet://";
+    public static final String AW_PREFIX = "maw://";
     public static final String OPEN_URL_PREFIX = "openURL?q=";
 
     public static DeepLinkRequest parseIntent(String importData, Intent startIntent)

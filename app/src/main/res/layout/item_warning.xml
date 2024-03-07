@@ -63,13 +63,17 @@
                 tools:text="Back up Wallet" />
 
             <ImageView
-                android:id="@+id/btn_close"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_close"
-                app:tint="?android:textColorPrimary" />
+                    android:id="@+id/btn_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/action_close"
+                    android:minWidth="48dip"
+                    android:minHeight="48dip"
+                    android:padding="12dip"
+                    android:src="@drawable/ic_close"
+                    app:tint="?android:textColorPrimary" />
 
         </RelativeLayout>
 

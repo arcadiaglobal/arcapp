@@ -74,4 +74,9 @@
     <color name="ag_gsc">#CCCCCC</color>
     <color name="ag_gsd">#DDDDDD</color>
     <color name="ag_gse">#EEEEEE</color>
+    <color name="ag_d0">#000814</color>
+    <color name="ag_d1">#001029</color>
+    <color name="ag_d2">#00183d</color>
+    <color name="ag_d3">#002152</color>
+    <color name="ag_d4">#002966</color>
 </resources>

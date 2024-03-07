@@ -35,100 +35,108 @@
 
 
     <LinearLayout
-        android:id="@+id/layout_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/standard_16"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            android:id="@+id/layout_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/standard_16"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/double_base_48"
+            android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_select_token"
-            style="@style/Aw.Component.Button.Primary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_expand_more"
-            android:drawableTint="?colorSurface"
-            android:paddingHorizontal="@dimen/base_24"
-            android:text="@string/action_select_token" />
+                android:id="@+id/btn_select_token"
+                style="@style/Aw.Component.Button.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_expand_more"
+                android:drawableTint="?colorSurface"
+                android:minWidth="68dip"
+                android:paddingHorizontal="@dimen/base_24"
+                android:text="@string/action_select_token"
+                android:textSize="@dimen/sp18" />
 
         <LinearLayout
-            android:id="@+id/layout_token"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            tools:visibility="visible">
+                android:id="@+id/layout_token"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
 
             <com.alphawallet.app.widget.AddressIcon
-                android:id="@+id/token_icon"
-                android:layout_width="@dimen/token_icon"
-                android:layout_height="@dimen/token_icon"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="@dimen/tiny_8"
-                android:foregroundGravity="center_vertical" />
+                    android:id="@+id/token_icon"
+                    android:layout_width="@dimen/token_icon"
+                    android:layout_height="@dimen/token_icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/tiny_8"
+                    android:foregroundGravity="center_vertical" />
 
             <TextView
-                android:id="@+id/text_token_symbol"
-                style="@style/Aw.Typography.Title.XLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textAllCaps="true"
-                tools:text="ETH" />
+                    android:id="@+id/text_token_symbol"
+                    style="@style/Aw.Typography.Title.XLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textAllCaps="true"
+                    tools:text="ETH" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/tiny_8"
-                android:src="@drawable/ic_expand_more"
-                app:tint="?colorControlNormal" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/tiny_8"
+                    android:contentDescription="@string/action_open_settings"
+                    android:src="@drawable/ic_expand_more"
+                    app:tint="?colorControlNormal" />
 
         </LinearLayout>
 
         <EditText
-            android:id="@+id/amount_entry"
-            style="@style/Aw.Typography.Title.XLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:gravity="end"
-            android:hint="0"
-            android:imeOptions="actionDone"
-            android:inputType="numberDecimal"
-            android:lines="1"
-            android:maxLines="1"
-            android:paddingStart="@dimen/dp5"
-            android:paddingEnd="@dimen/dp5" />
+                android:id="@+id/amount_entry"
+                style="@style/Aw.Typography.Title.XLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="end"
+                android:hint="0"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLines="1"
+                android:minWidth="@dimen/double_base_48"
+                android:minHeight="@dimen/double_base_48"
+                android:paddingStart="@dimen/dp5"
+                android:paddingEnd="@dimen/dp5" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/standard_16"
-        android:layout_marginTop="@dimen/small_12"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/balance"
-            style="@style/Aw.Typography.Sub.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Balance: 0 TKN" />
-
-        <TextView
-            android:id="@+id/btn_max"
-            style="@style/Aw.Typography.Control"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:gravity="end"
-            android:lines="1"
-            android:text="@string/seekbar_max"
-            android:visibility="visible" />
+            android:layout_marginHorizontal="@dimen/standard_16"
+            android:layout_marginTop="@dimen/small_12"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/double_base_48"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/balance"
+                style="@style/Aw.Typography.Sub.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Balance: 0 TKN" />
+
+        <TextView
+                android:id="@+id/btn_max"
+                style="@style/Aw.Typography.Control"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:gravity="center_vertical|end"
+                android:lines="1"
+                android:minHeight="@dimen/double_base_48"
+                android:text="@string/seekbar_max"
+                android:visibility="visible" />
 
     </LinearLayout>
 

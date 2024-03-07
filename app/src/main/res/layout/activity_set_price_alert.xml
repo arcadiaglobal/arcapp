@@ -9,15 +9,16 @@
     <include layout="@layout/layout_simple_toolbar" />
 
     <com.alphawallet.app.widget.InputFiatView
-        android:id="@+id/input_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/button_bar"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="-1dp"
-        custom:can_change_currency="false"
-        custom:label="@string/enter_target_price"
-        custom:show_header="true" />
+            android:id="@+id/input_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/button_bar"
+            android:layout_below="@id/toolbar"
+            android:layout_marginTop="-1dp"
+            android:contentDescription="@null"
+            custom:can_change_currency="false"
+            custom:label="@string/enter_target_price"
+            custom:show_header="true" />
 
     <com.alphawallet.app.widget.FunctionButtonBar
         android:id="@+id/button_bar"
