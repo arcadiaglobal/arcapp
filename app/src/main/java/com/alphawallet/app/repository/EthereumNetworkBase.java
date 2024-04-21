@@ -61,18 +61,17 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.PALM_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.PALM_TEST_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.POLYGON_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.POLYGON_TEST_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.ROOTSTOCK_MAINNET_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.ROOTSTOCK_MAINNET_RPC_URL;
+import static com.alphawallet.ethereum.EthereumNetworkBase.ROOTSTOCK_TESTNET_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.ROOTSTOCK_TESTNET_RPC_URL;
 import static com.alphawallet.ethereum.EthereumNetworkBase.SEPOLIA_TESTNET_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.SEPOLIA_TESTNET_RPC_URL;
 import static com.alphawallet.ethereum.EthereumNetworkBase.XDAI_RPC_URL;
-import static com.alphawallet.ethereum.EthereumNetworkBase.ROOTSTOCK_MAINNET_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.ROOTSTOCK_TESTNET_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.ROOTSTOCK_MAINNET_RPC_URL;
-import static com.alphawallet.ethereum.EthereumNetworkBase.ROOTSTOCK_TESTNET_RPC_URL;
 
 import android.text.TextUtils;
 import android.util.LongSparseArray;
 
-import com.alphawallet.app.BuildConfig;
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
 import com.alphawallet.app.entity.ContractLocator;
@@ -120,6 +119,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     private static final KeyProvider keyProvider = KeyProviderFactory.get();
     public static final boolean usesProductionKey = !keyProvider.getInfuraKey().equals(DEFAULT_INFURA_KEY);
+    private static final String INFURA_GAS_API = "https://gas.api.infura.io/networks/CHAIN_ID/suggestedGasFees";
 
     public static final String FREE_MAINNET_RPC_URL = "https://rpc.ankr.com/eth";
     public static final String FREE_POLYGON_RPC_URL = "https://polygon-rpc.com";
@@ -256,13 +256,13 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
                     FANTOM_TEST_RPC_URL,
                     "https://explorer.testnet.fantom.network/tx/", FANTOM_TEST_ID,
                     "https://fantom-testnet.public.blastapi.io", "https://api.covalenthq.com/v1/" + COVALENT)); //NB: Fantom testnet not yet supported by Covalent
-            put(POLYGON_ID, new NetworkInfo(C.POLYGON_NETWORK, C.POLYGON_SYMBOL, POLYGON_RPC_URL,
+            put(POLYGON_ID, new NetworkInfo(C.POLYGON_NETWORK, C.POLYGON_SYMBOL, FREE_POLYGON_RPC_URL,
                     "https://polygonscan.com/tx/", POLYGON_ID,
-                    POLYGON_FALLBACK_RPC_URL, "https://api.polygonscan.com/api?"));
+                    POLYGON_RPC_URL, "https://api.polygonscan.com/api?"));
             put(POLYGON_TEST_ID, new NetworkInfo(C.POLYGON_TEST_NETWORK, C.POLYGON_SYMBOL,
-                    MUMBAI_TEST_RPC_URL,
+                    FREE_MUMBAI_RPC_URL,
                     "https://mumbai.polygonscan.com/tx/", POLYGON_TEST_ID,
-                    MUMBAI_FALLBACK_RPC_URL, " https://api-testnet.polygonscan.com/api?"));
+                    MUMBAI_TEST_RPC_URL, " https://api-testnet.polygonscan.com/api?"));
             put(OPTIMISTIC_MAIN_ID, new NetworkInfo(C.OPTIMISTIC_NETWORK, C.ETH_SYMBOL,
                     OPTIMISTIC_MAIN_URL,
                     "https://optimistic.etherscan.io/tx/", OPTIMISTIC_MAIN_ID, OPTIMISTIC_MAIN_FALLBACK_URL,
@@ -495,7 +495,9 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
     //Add it to this list here if so. Note that so far, all gas oracles follow the same format:
     //  <etherscanAPI from the above list> + GAS_API
     //If the gas oracle you're adding doesn't follow this spec then you'll have to change the getGasOracle method
-    private static final List<Long> hasGasOracleAPI = Arrays.asList(MAINNET_ID, HECO_ID, BINANCE_MAIN_ID, POLYGON_ID);
+    private static final List<Long> hasGasOracleAPI = Arrays.asList(MAINNET_ID, POLYGON_ID, ARBITRUM_MAIN_ID, AVALANCHE_ID, BINANCE_MAIN_ID, CRONOS_MAIN_ID, GOERLI_ID,
+            SEPOLIA_TESTNET_ID, FANTOM_ID, LINEA_ID, OPTIMISTIC_MAIN_ID, POLYGON_TEST_ID);
+    private static final List<Long> hasEtherscanGasOracleAPI = Arrays.asList(MAINNET_ID, HECO_ID, BINANCE_MAIN_ID, POLYGON_ID);
     private static final List<Long> hasBlockNativeGasOracleAPI = Arrays.asList(MAINNET_ID, POLYGON_ID);
     //These chains don't allow custom gas
     private static final List<Long> hasLockedGas = Arrays.asList(KLAYTN_ID, KLAYTN_BAOBAB_ID);
@@ -510,11 +512,24 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
         }
     };
 
+    public static String getEtherscanGasOracle(long chainId)
+    {
+        if (hasEtherscanGasOracleAPI.contains(chainId) && networkMap.indexOfKey(chainId) >= 0)
+        {
+            return networkMap.get(chainId).etherscanAPI + GAS_API;
+        }
+        else
+        {
+            return "";
+        }
+    }
+
     public static String getGasOracle(long chainId)
     {
         if (hasGasOracleAPI.contains(chainId) && networkMap.indexOfKey(chainId) >= 0)
         {
-            return networkMap.get(chainId).etherscanAPI + GAS_API;
+            //construct API route:
+            return INFURA_GAS_API.replace("CHAIN_ID", Long.toString(chainId));
         }
         else
         {
@@ -563,6 +578,11 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
     public static final int INFURA_BATCH_LIMIT = 512;
     public static final String INFURA_DOMAIN = "infura.io";
 
+    public static void setBatchProcessingError(long chainId)
+    {
+        batchProcessingLimitMap.put(chainId, 0);
+    }
+
     //TODO: Refactor when we bump the version of java to allow switch on Long (Finally!!)
     //Also TODO: add a test to check these batch limits of each chain we support
     private static int batchProcessingLimit(long chainId)
@@ -605,7 +625,9 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
     public static int getBatchProcessingLimit(long chainId)
     {
         if (batchProcessingLimitMap.size() == 0) setBatchProcessingLimits(); //If batch limits not set, init them and proceed
-        return batchProcessingLimitMap.get(chainId, 0); //default to zero / no batching
+        {
+            return batchProcessingLimitMap.get(chainId, 0); //default to zero / no batching
+        }
     }
 
     @Override
@@ -863,8 +885,6 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
         return networkMap.get(chainId);
     }
 
-    // fetches the last transaction nonce; if it's identical to the last used one then increment by one
-    // to ensure we don't get transaction replacement
     @Override
     public Single<BigInteger> getLastTransactionNonce(Web3j web3j, String walletAddress)
     {
@@ -1083,7 +1103,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
         }
         else
         {
-            return info.backupNodeUrl != null ? info.backupNodeUrl : info.rpcServerUrl;
+            return info.rpcServerUrl; // Not Infura, use directly
         }
     }
 

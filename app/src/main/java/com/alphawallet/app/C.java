@@ -211,6 +211,7 @@ public abstract class C {
     public static final String APP_FOREGROUND_STATE = "com.alphawallet.APP_FOREGROUND_STATE";
     public static final String EXTRA_APP_FOREGROUND = "com.alphawallet.IS_FOREGORUND";
     public static final String QRCODE_SCAN = "com.alphawallet.QRSCAN";
+    public static final String AWALLET_CODE = "com.alphawallet.AWALLET";
     public static final String SIGNAL_NFT_SYNC = "com.alphawallet.SYNC_NFT";
     public static final String SYNC_STATUS = "com.alphawallet.SYNC_STATUS";
 
@@ -278,6 +279,7 @@ public abstract class C {
     public static final String DAPP_SUFFIX_RECEIVE = "receive";
     public static final String DAPP_PREFIX_MAPS = "maps.google.com/maps?daddr=";
     public static final String DAPP_PREFIX_WALLETCONNECT = "wc";
+    public static final String DAPP_PREFIX_AWALLET = "awallet";
 
     public static final String ENS_SCAN_BLOCK = "ens_check_block";
     public static final String ENS_HISTORY = "ensHistory";
@@ -313,23 +315,8 @@ public abstract class C {
 
     // OpenSea APIs
     public static final String OPENSEA_COLLECTION_API_MAINNET = "https://api.opensea.io/collection/";
-
-    public static final String OPENSEA_ASSETS_API_MAINNET = "https://api.opensea.io/api/v1/assets";
-    public static final String OPENSEA_ASSETS_API_TESTNET = "https://testnets-api.opensea.io/api/v1/assets";
-    public static final String OPENSEA_ASSETS_API_MATIC = "https://api.opensea.io/api/v2/assets/matic";
-    public static final String OPENSEA_ASSETS_API_ARBITRUM = "https://api.opensea.io/api/v2/assets/arbitrum";
-    public static final String OPENSEA_ASSETS_API_AVALANCHE = "https://api.opensea.io/api/v2/assets/avalanche";
-    public static final String OPENSEA_ASSETS_API_KLAYTN = "https://api.opensea.io/api/v2/assets/klaytn";
-    public static final String OPENSEA_ASSETS_API_OPTIMISM = "https://api.opensea.io/api/v2/assets/optimism";
-
-    public static final String OPENSEA_SINGLE_ASSET_API_MAINNET = "https://api.opensea.io/api/v1/asset/";
-    public static final String OPENSEA_SINGLE_ASSET_API_TESTNET = "https://testnets-api.opensea.io/api/v1/asset/";
-    public static final String OPENSEA_SINGLE_ASSET_API_MATIC = "https://api.opensea.io/api/v2/metadata/matic/";
-    public static final String OPENSEA_SINGLE_ASSET_API_ARBITRUM = "https://api.opensea.io/api/v2/metadata/arbitrum/";
-    public static final String OPENSEA_SINGLE_ASSET_API_AVALANCHE = "https://api.opensea.io/api/v2/metadata/avalanche/";
-    public static final String OPENSEA_SINGLE_ASSET_API_KLAYTN = "https://api.opensea.io/api/v2/metadata/klaytn/";
-    public static final String OPENSEA_SINGLE_ASSET_API_OPTIMISM = "https://api.opensea.io/api/v2/metadata/optimism/";
-
+    public static final String OPENSEA_ASSETS_API_V2 = "https://api.opensea.io/api/v2/chain/{CHAIN}/account/{ADDRESS}/nfts";
+    public static final String OPENSEA_NFT_API_V2 = "https://api.opensea.io/api/v2/chain/{CHAIN}/contract/{ADDRESS}/nfts/{TOKEN_ID}";
 
     //Timing
     public static long CONNECT_TIMEOUT = 10; //Seconds

@@ -38,7 +38,6 @@ import org.web3j.abi.datatypes.Type;
 import org.web3j.abi.datatypes.Utf8String;
 import org.web3j.abi.datatypes.generated.Bytes32;
 import org.web3j.abi.datatypes.generated.Uint256;
-import org.web3j.utils.Numeric;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
@@ -81,7 +80,10 @@ public class TokenDefinition
 
     public static final String TOKENSCRIPT_MINIMUM_SCHEMA = "2020/06";
     public static final String TOKENSCRIPT_CURRENT_SCHEMA = "2022/09";
+    public static final String TOKENSCRIPT_ADDRESS = "{TS_ADDRESS}";
+    public static final String TOKENSCRIPT_CHAIN = "{TS_CHAIN}";
     public static final String TOKENSCRIPT_REPO_SERVER = "https://repo.tokenscript.org/";
+    public static final String TOKENSCRIPT_STORE_SERVER = "https://store-backend.smartlayer.network/tokenscript/" + TOKENSCRIPT_ADDRESS + "/chain/" + TOKENSCRIPT_CHAIN + "/script-uri";
     public static final String TOKENSCRIPT_NAMESPACE = "http://tokenscript.org/" + TOKENSCRIPT_CURRENT_SCHEMA + "/tokenscript";
 
     private static final String ATTESTATION = "http://attestation.id/ns/tbml";
@@ -1735,15 +1737,9 @@ public class TokenDefinition
         return tokenViews.getView(viewTag);
     }
 
-    public TSTokenView getTSTokenView(String type)
+    public TSTokenView getTSTokenView(String name)
     {
-        TSTokenView view = tokenViews.views.get(type);
-        if (view == null && tokenViews.views.size() > 0)
-        {
-            view = tokenViews.views.values().iterator().next();
-        }
-
-        return view;
+        return tokenViews.getTSView(name);
     }
 
     public String getTokenViewStyle(String viewTag)

@@ -30,12 +30,10 @@ import com.alphawallet.app.entity.ErrorEnvelope;
 import com.alphawallet.app.entity.Operation;
 import com.alphawallet.app.entity.SyncCallback;
 import com.alphawallet.app.entity.Wallet;
-import com.alphawallet.app.entity.WalletConnectActions;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.repository.EthereumNetworkRepository;
 import com.alphawallet.app.repository.PreferenceRepositoryType;
 import com.alphawallet.app.service.KeyService;
-import com.alphawallet.app.service.WalletConnectService;
 import com.alphawallet.app.ui.widget.adapter.WalletsSummaryAdapter;
 import com.alphawallet.app.viewmodel.WalletsViewModel;
 import com.alphawallet.app.widget.AWalletAlertDialog;
@@ -78,7 +76,6 @@ public class WalletsActivity extends BaseActivity implements
     private Dialog dialog;
     private AWalletAlertDialog aDialog;
     private WalletsSummaryAdapter adapter;
-    private Wallet selectedWallet;
     private ActivityResultLauncher<Intent> editWalletDetails;
     private AWalletAlertDialog cardReadDialog;
     private String dialogError;
@@ -257,8 +254,7 @@ public class WalletsActivity extends BaseActivity implements
         if (viewModel != null) viewModel.onDestroy();
     }
 
-    @Override
-    public void onBackPressed()
+    private void backPressed()
     {
         preFinish();
         // User can't start work without wallet.
@@ -266,6 +262,12 @@ public class WalletsActivity extends BaseActivity implements
         {
             System.exit(0);
         }
+    }
+
+    @Override
+    public void handleBackPressed()
+    {
+        backPressed();
     }
 
     @Override
@@ -278,19 +280,14 @@ public class WalletsActivity extends BaseActivity implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        final int action_add = R.id.action_add;
-        switch (item.getItemId())
+        if (item.getItemId() == R.id.action_add)
         {
-            case action_add:
-            {
-                onAddWallet();
-            }
-            break;
-            case android.R.id.home:
-            {
-                onBackPressed();
-                return true;
-            }
+            onAddWallet();
+        }
+        else if (item.getItemId() == android.R.id.home)
+        {
+            backPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -393,7 +390,6 @@ public class WalletsActivity extends BaseActivity implements
             adapter.setDefaultWallet(wallet);
             scrollToDefaultWallet();
         }
-        selectedWallet = wallet;
     }
 
     /**
@@ -435,13 +431,6 @@ public class WalletsActivity extends BaseActivity implements
         scrollToDefaultWallet();
 
         viewModel.stopUpdates();
-
-        Intent bIntent = new Intent(this, WalletConnectService.class);
-        bIntent.setAction(String.valueOf(WalletConnectActions.DISCONNECT.ordinal()));
-        bIntent.putExtra("wallet", selectedWallet);
-        startService(bIntent);
-
-        selectedWallet = wallet;
     }
 
     private void onFetchWallets(Wallet[] wallets)
@@ -467,7 +456,6 @@ public class WalletsActivity extends BaseActivity implements
         Intent intent = new Intent(this, WalletActionsActivity.class);
         intent.putExtra("wallet", wallet);
         intent.putExtra("currency", viewModel.getNetwork().symbol);
-        intent.putExtra("walletCount", adapter.getItemCount());
         intent.putExtra("isNewWallet", true);
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 

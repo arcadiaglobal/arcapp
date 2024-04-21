@@ -994,8 +994,13 @@
     <string name="override">Anular</string>
     <string name="developer_override">Anulación del Desarrollador</string>
     <string name="override_warning_text">Es posible que esté a punto de firmar una transacción sin saberlo, lo que podría vaciar sus fondos. Es posible que desee firmar el código de bytes como desarrollador y puede anular esta advertencia si configura el modo de desarrollador en la configuración avanzada.</string>
+
     <string name="aw_participate">Puedes recibir tokens al participar en este proyecto con ambos trabajo y crypto. Los tokens DAO te dan poderes de voto en las decisiones del proyecto, incluyendo como se usan esos fondos para avanzar el proyecto. Conoce más en el navegador Daap.</string>
     <string name="browser_back">Regresar</string>
     <string name="browser_forward">Avanzar</string>
     <string name="browser_home">Inicio</string>
+
+    <string name="constructor">Constructor</string>
+    <string name="use_tokenscript_viewer">Visor de TokenScript</string>
+
 </resources>

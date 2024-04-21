@@ -1072,8 +1072,13 @@
     <string name="override">Override</string>
     <string name="developer_override">Developer Override</string>
     <string name="override_warning_text">You might be about to unknowingly sign a transaction, which could empty your funds. You may want to sign bytecode as a developer, and you can override this warning if you set developer mode in Advanced settings.</string>
+
     <string name="aw_participate">You can get tokens by participating on this project with either work and cryptoassets. DAO tokens give you voting power in the decisions of the project, including how your funds are used to advance it. Learn more in the Dapp browser\'s homepage.</string>
     <string name="browser_back">Browse Back</string>
     <string name="browser_forward">Browse Forward</string>
     <string name="browser_home">Go Home</string>
+
+    <string name="constructor">Constructor</string>
+    <string name="use_tokenscript_viewer">Use TokenScript Viewer</string>
+
 </resources>

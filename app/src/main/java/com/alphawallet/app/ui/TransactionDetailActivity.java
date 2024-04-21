@@ -34,6 +34,7 @@ import com.alphawallet.app.entity.analytics.ActionSheetMode;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.repository.EthereumNetworkRepository;
 import com.alphawallet.app.router.HomeRouter;
+import com.alphawallet.app.service.GasService;
 import com.alphawallet.app.ui.widget.entity.ActionSheetCallback;
 import com.alphawallet.app.ui.widget.entity.TokenTransferData;
 import com.alphawallet.app.util.BalanceUtils;
@@ -48,9 +49,9 @@ import com.alphawallet.app.widget.FunctionButtonBar;
 import com.alphawallet.app.widget.SignTransactionDialog;
 import com.alphawallet.app.widget.TokenIcon;
 import com.alphawallet.hardware.SignatureFromKey;
-import org.web3j.utils.Numeric;
 
 import org.web3j.crypto.Keys;
+import org.web3j.utils.Numeric;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -243,7 +244,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
         Token targetToken = viewModel.getToken(transaction.chainId, TextUtils.isEmpty(tokenAddress) ? transaction.to : tokenAddress);
         if (targetToken.isEthereum()) return;
         tokenDetailsLayout.setVisibility(View.VISIBLE);
-        icon.bindData(targetToken, viewModel.getTokenService());
+        icon.bindData(targetToken);
         address.setText(Keys.toChecksumAddress(targetToken.getAddress()));
         tokenName.setText(targetToken.getFullName());
     }
@@ -543,6 +544,12 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
     }
 
     @Override
+    public GasService getGasService()
+    {
+        return viewModel.getGasService();
+    }
+
+    @Override
     public void notifyConfirm(String mode)
     {
         AnalyticsProperties props = new AnalyticsProperties();
@@ -574,7 +581,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
     }
 
     @Override
-    public void onBackPressed()
+    public void handleBackPressed()
     {
         if (isFromNotification)
         {
@@ -582,7 +589,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
         }
         else
         {
-            super.onBackPressed();
+            finish();
         }
     }
 }

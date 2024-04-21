@@ -209,15 +209,23 @@ public class ImportTokenActivity extends BaseActivity implements View.OnClickLis
 
     //TODO: Use Activity Launcher model (eg see tokenManagementLauncher in WalletFragment)
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home: {
-                new HomeRouter().open(this, true);
-                finish();
-                return true;
-            }
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (item.getItemId() == android.R.id.home)
+        {
+            new HomeRouter().open(this, true);
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void handleBackPressed()
+    {
+        setResult(RESULT_CANCELED);
+        new HomeRouter().open(this, true);
+        finish();
     }
 
     private void setTicket(boolean ticket, boolean progress, boolean invalid)
@@ -527,33 +535,32 @@ public class ImportTokenActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void onClick(View v) {
-        final int import_ticket = R.id.import_ticket;
-        final int cancel_button = R.id.cancel_button;
-        switch (v.getId()) {
-            case import_ticket:
-                if (ticketRange != null) {
-                    if (viewModel.getSalesOrder().price > 0.0)
-                    {
-                        confirmPurchaseDialog();
-                    }
-                    else
-                    {
-                        onProgress(true);
-                        completeImport();
-                    }
+    public void onClick(View v)
+    {
+        if (v.getId() == R.id.import_ticket)
+        {
+            if (ticketRange != null)
+            {
+                if (viewModel.getSalesOrder().price > 0.0)
+                {
+                    confirmPurchaseDialog();
                 }
-                else if (viewModel.getSalesOrder().contractType == currencyLink)
+                else
                 {
                     onProgress(true);
-                    completeCurrencyImport();
+                    completeImport();
                 }
-                break;
-            case cancel_button:
-                //go to main screen
-                new HomeRouter().open(this, true);
-                finish();
-                break;
+            }
+            else if (viewModel.getSalesOrder().contractType == currencyLink)
+            {
+                onProgress(true);
+                completeCurrencyImport();
+            }
+        }
+        else if (v.getId() == R.id.cancel_button)
+        {
+            new HomeRouter().open(this, true);
+            finish();
         }
     }
 
@@ -582,40 +589,6 @@ public class ImportTokenActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    public static String getMagiclinkFromClipboard(Context ctx)
-    {
-        String magicLink = null;
-        try
-        {
-            //try clipboard data
-            ClipboardManager clipboard = (ClipboardManager) ctx.getSystemService(CLIPBOARD_SERVICE);
-            CharSequence text = clipboard.getPrimaryClip().getItemAt(0).getText();
-
-            //see if text is a magic link
-            if (text != null && text.length() > 60 && text.length() < 300)
-            {
-                //could be magicLink
-                CryptoFunctions cryptoFunctions = new CryptoFunctions();
-                ParseMagicLink parser = new ParseMagicLink(cryptoFunctions, EthereumNetworkRepository.extraChains());
-                MagicLinkData order = parser.parseUniversalLink(text.toString());
-                if (Utils.isAddressValid(order.contractAddress) && order.indices.length > 0)
-                {
-                    magicLink = text.toString();
-                    //now clear the clipboard - we only ever do this if it's definitely a magicLink in the clipboard
-                    ClipData clipData = ClipData.newPlainText("", "");
-                    clipboard.setPrimaryClip(clipData);
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            //not a magicLink
-            magicLink = null;
-        }
-
-        return magicLink;
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode,resultCode,intent);
@@ -624,12 +597,6 @@ public class ImportTokenActivity extends BaseActivity implements View.OnClickLis
         {
             gotAuthorisation(resultCode == RESULT_OK);
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        setResult(RESULT_CANCELED);
-        super.onBackPressed();
     }
 
     /**

@@ -157,18 +157,24 @@ public class BackupFlowActivity extends BaseActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home)
         {
-            onBackPressed();
+            backPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
+    public void backPressed()
+    {
         Intent intent = new Intent();
         setResult(RESULT_CANCELED, intent);
         intent.putExtra("Key", wallet.address);
         finish();
+    }
+
+    @Override
+    public void handleBackPressed()
+    {
+        backPressed();
     }
 
     @Override

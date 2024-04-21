@@ -30,6 +30,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -66,7 +67,6 @@ import com.alphawallet.app.ui.widget.holder.WarningHolder;
 import com.alphawallet.app.util.LocaleUtils;
 import com.alphawallet.app.viewmodel.WalletViewModel;
 import com.alphawallet.app.walletconnect.AWWalletConnectClient;
-import com.alphawallet.app.widget.AWalletAlertDialog;
 import com.alphawallet.app.widget.BuyEthOptionsView;
 import com.alphawallet.app.widget.LargeTitleView;
 import com.alphawallet.app.widget.NotificationView;
@@ -117,6 +117,8 @@ public class WalletFragment extends BaseFragment implements
     private LargeTitleView largeTitleView;
     private ActivityResultLauncher<Intent> handleBackupClick;
     private ActivityResultLauncher<Intent> tokenManagementLauncher;
+    private boolean completed = false;
+    private boolean hasWCSession = false;
 
     @Inject
     AWWalletConnectClient awWalletConnectClient;
@@ -210,6 +212,34 @@ public class WalletFragment extends BaseFragment implements
                 });
     }
 
+    class CompletionLayoutListener extends LinearLayoutManager
+    {
+        public CompletionLayoutListener(Context context)
+        {
+            super(context);
+        }
+
+        public CompletionLayoutListener(FragmentActivity activity, int orientation, boolean reverseLayout)
+        {
+            super(activity, orientation, reverseLayout);
+        }
+
+        @Override
+        public void onLayoutCompleted(RecyclerView.State state)
+        {
+            super.onLayoutCompleted(state);
+            final int firstVisibleItemPosition = findFirstVisibleItemPosition();
+            final int lastVisibleItemPosition = findLastVisibleItemPosition();
+            int itemsShown = lastVisibleItemPosition - firstVisibleItemPosition + 1;
+            if (!completed && itemsShown > 1)
+            {
+                completed = true;
+                viewModel.startUpdateListener();
+                viewModel.getTokensService().startUpdateCycleIfRequired();
+            }
+        }
+    }
+
     private void initList()
     {
         adapter = new TokensAdapter(this, viewModel.getAssetDefinitionService(), viewModel.getTokensService(),
@@ -225,7 +255,7 @@ public class WalletFragment extends BaseFragment implements
 
         refreshLayout.setOnRefreshListener(this::refreshList);
         recyclerView.addRecyclerListener(holder -> adapter.onRViewRecycled(holder));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new CompletionLayoutListener(getActivity(), LinearLayoutManager.VERTICAL, false));
     }
 
     private void initViewModel()
@@ -241,6 +271,7 @@ public class WalletFragment extends BaseFragment implements
         viewModel.removeDisplayTokens().observe(getViewLifecycleOwner(), this::removeTokens);
         viewModel.getTokensService().startWalletSync(this);
         viewModel.activeWalletConnectSessions().observe(getViewLifecycleOwner(), walletConnectSessionItems -> {
+            hasWCSession = !walletConnectSessionItems.isEmpty();
             adapter.showActiveWalletConnectSessions(walletConnectSessionItems);
         });
     }
@@ -357,7 +388,6 @@ public class WalletFragment extends BaseFragment implements
             adapter.clear();
             viewModel.prepare();
             viewModel.notifyRefresh();
-            awWalletConnectClient.updateNotification();
         });
     }
 
@@ -373,13 +403,18 @@ public class WalletFragment extends BaseFragment implements
     public void comeIntoFocus()
     {
         isVisible = true;
-        viewModel.startUpdateListener();
-        viewModel.getTokensService().startUpdateCycle();
+        if (completed)
+        {
+            viewModel.startUpdateListener();
+            viewModel.getTokensService().startUpdateCycleIfRequired();
+        }
+        checkWalletConnect();
     }
 
     @Override
     public void leaveFocus()
     {
+        isVisible = false;
         viewModel.stopUpdateListener();
         softKeyboardGone();
     }
@@ -388,6 +423,10 @@ public class WalletFragment extends BaseFragment implements
     public void onPause()
     {
         super.onPause();
+        if (isVisible)
+        {
+            viewModel.stopUpdateListener();
+        }
     }
 
     private void initTabLayout(View view)
@@ -418,7 +457,7 @@ public class WalletFragment extends BaseFragment implements
                     case ASSETS:
                     case DEFI:
                     case GOVERNANCE:
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        recyclerView.setLayoutManager(new CompletionLayoutListener(getActivity()));
                         viewModel.prepare();
                         break;
                     case COLLECTIBLES:
@@ -529,6 +568,7 @@ public class WalletFragment extends BaseFragment implements
         if (viewModel == null)
         {
             requireActivity().recreate();
+            return;
         }
         else
         {
@@ -537,6 +577,22 @@ public class WalletFragment extends BaseFragment implements
             {
                 largeTitleView.setVisibility(View.VISIBLE); //show or hide Fiat summary
             }
+        }
+
+        if (isVisible)
+        {
+            viewModel.startUpdateListener();
+            viewModel.getTokensService().startUpdateCycleIfRequired();
+        }
+
+        checkWalletConnect();
+    }
+
+    private void checkWalletConnect()
+    {
+        if (adapter != null)
+        {
+            adapter.checkWalletConnect();
         }
     }
 
@@ -550,14 +606,9 @@ public class WalletFragment extends BaseFragment implements
         }
         systemView.showProgress(false);
 
-        if (isVisible)
-        {
-            viewModel.startUpdateListener();
-        }
-
         if (currentTabPos.equals(TokenFilter.ALL))
         {
-            awWalletConnectClient.updateNotification();
+            checkWalletConnect();
         }
         else
         {
@@ -767,6 +818,19 @@ public class WalletFragment extends BaseFragment implements
         Intent intent = new Intent(getActivity(), SearchActivity.class);
         networkSettingsHandler.launch(intent);
         //startActivity(intent);
+    }
+
+    @Override
+    public void onWCClicked()
+    {
+        Intent intent = awWalletConnectClient.getSessionIntent(getContext());
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean hasWCSession()
+    {
+        return hasWCSession || (awWalletConnectClient != null && awWalletConnectClient.hasWalletConnectSessions());
     }
 
     @Override

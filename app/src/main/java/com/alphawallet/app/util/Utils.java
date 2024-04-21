@@ -73,7 +73,6 @@ import java.net.URLDecoder;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -81,7 +80,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -96,7 +94,7 @@ public class Utils
     private static final String CHAIN_REPO_ADDRESS_TOKEN = "[CHAIN]";
     private static final String TOKEN_LOGO = "/logo.png";
     public static final String ALPHAWALLET_REPO_NAME = "https://raw.githubusercontent.com/alphawallet/iconassets/master/";
-    private static final String TRUST_ICON_REPO_BASE = "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/";
+    public static final String TRUST_ICON_REPO_BASE = "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/";
     private static final String TRUST_ICON_REPO = TRUST_ICON_REPO_BASE + CHAIN_REPO_ADDRESS_TOKEN + "/assets/" + ICON_REPO_ADDRESS_TOKEN + TOKEN_LOGO;
     private static final String ALPHAWALLET_ICON_REPO = ALPHAWALLET_REPO_NAME + ICON_REPO_ADDRESS_TOKEN + TOKEN_LOGO;
     private static final String ATTESTATION_PREFIX = "#attestation=";
@@ -115,7 +113,7 @@ public class Utils
 
     public static String formatUrl(String url)
     {
-        if (URLUtil.isHttpsUrl(url) || URLUtil.isHttpUrl(url))
+        if (URLUtil.isHttpsUrl(url) || URLUtil.isHttpUrl(url) || isWalletPrefix(url))
         {
             return url;
         }
@@ -130,6 +128,16 @@ public class Utils
                 return C.INTERNET_SEARCH_PREFIX + url;
             }
         }
+    }
+
+    public static boolean isWalletPrefix(String url)
+    {
+        return url.startsWith(C.DAPP_PREFIX_TELEPHONE) ||
+                url.startsWith(C.DAPP_PREFIX_MAILTO) ||
+                url.startsWith(C.DAPP_PREFIX_ALPHAWALLET) ||
+                url.startsWith(C.DAPP_PREFIX_MAPS) ||
+                url.startsWith(C.DAPP_PREFIX_WALLETCONNECT) ||
+                url.startsWith(C.DAPP_PREFIX_AWALLET);
     }
 
     public static boolean isValidUrl(String url)
@@ -1443,7 +1451,7 @@ public class Utils
     {
         //wallet.name = getString(R.string.wallet_name_template, walletCount);
         String walletStr = ctx.getString(R.string.wallet_name_template, 1);
-        String walletSplit[] = walletStr.split(" ");
+        String[] walletSplit = walletStr.split(" ");
         walletStr = walletSplit[0];
         if (!TextUtils.isEmpty(name) && name.startsWith(walletStr) && walletSplit.length == 2)
         {

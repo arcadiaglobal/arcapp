@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +40,8 @@ public abstract class NetworkBaseActivity extends BaseActivity implements TestNe
         toolbar();
 
         initViews();
+
+        setDispatcher();
     }
 
     @Override
@@ -67,7 +70,7 @@ public abstract class NetworkBaseActivity extends BaseActivity implements TestNe
     }
 
     @Override
-    public void onBackPressed()
+    public void handleBackPressed()
     {
         handleSetNetworks();
     }

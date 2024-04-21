@@ -34,6 +34,7 @@ import com.alphawallet.app.interact.CreateTransactionInteract;
 import com.alphawallet.app.interact.FetchTransactionsInteract;
 import com.alphawallet.app.interact.GenericWalletInteract;
 import com.alphawallet.app.repository.EthereumNetworkRepositoryType;
+import com.alphawallet.app.repository.PreferenceRepositoryType;
 import com.alphawallet.app.service.AnalyticsServiceType;
 import com.alphawallet.app.service.AssetDefinitionService;
 import com.alphawallet.app.service.GasService;
@@ -104,11 +105,11 @@ public class TokenFunctionViewModel extends BaseViewModel implements Transaction
     private final CreateTransactionInteract createTransactionInteract;
     private final GasService gasService;
     private final TokensService tokensService;
-    private final EthereumNetworkRepositoryType ethereumNetworkRepository;
     private final KeyService keyService;
     private final GenericWalletInteract genericWalletInteract;
     private final OpenSeaService openseaService;
     private final FetchTransactionsInteract fetchTransactionsInteract;
+    private final PreferenceRepositoryType preferences;
     private final MutableLiveData<Token> insufficientFunds = new MutableLiveData<>();
     private final MutableLiveData<String> invalidAddress = new MutableLiveData<>();
     private final MutableLiveData<XMLDsigDescriptor> sig = new MutableLiveData<>();
@@ -144,23 +145,23 @@ public class TokenFunctionViewModel extends BaseViewModel implements Transaction
             CreateTransactionInteract createTransactionInteract,
             GasService gasService,
             TokensService tokensService,
-            EthereumNetworkRepositoryType ethereumNetworkRepository,
             KeyService keyService,
             GenericWalletInteract genericWalletInteract,
             OpenSeaService openseaService,
             FetchTransactionsInteract fetchTransactionsInteract,
-            AnalyticsServiceType analyticsService)
+            AnalyticsServiceType analyticsService,
+            PreferenceRepositoryType prefs)
     {
         this.assetDefinitionService = assetDefinitionService;
         this.createTransactionInteract = createTransactionInteract;
         this.gasService = gasService;
         this.tokensService = tokensService;
-        this.ethereumNetworkRepository = ethereumNetworkRepository;
         this.keyService = keyService;
         this.genericWalletInteract = genericWalletInteract;
         this.openseaService = openseaService;
         this.fetchTransactionsInteract = fetchTransactionsInteract;
         setAnalyticsService(analyticsService);
+        this.preferences = prefs;
     }
 
     public AssetDefinitionService getAssetDefinitionService()
@@ -317,19 +318,6 @@ public class TokenFunctionViewModel extends BaseViewModel implements Transaction
     public String getTransactionBytes(Token token, BigInteger tokenId, FunctionDefinition def)
     {
         return assetDefinitionService.generateTransactionPayload(token, tokenId, def);
-    }
-
-    public TokenScriptResult getTokenScriptResult(Token token, BigInteger tokenId)
-    {
-        return assetDefinitionService.getTokenScriptResult(token, tokenId);
-    }
-
-    public BigInteger calculateMinGasPrice(BigInteger oldGasPrice)
-    {
-        //get 0.1GWEI in wei
-        BigInteger zeroPointOneWei = BalanceUtils.gweiToWei(BigDecimal.valueOf(0.1));
-        return new BigDecimal(oldGasPrice).multiply(BigDecimal.valueOf(1.1)).setScale(18, RoundingMode.UP).toBigInteger()
-                .add(zeroPointOneWei);
     }
 
     public Token getToken(long chainId, String contractAddress)
@@ -601,7 +589,7 @@ public class TokenFunctionViewModel extends BaseViewModel implements Transaction
     public void checkForNewScript(Token token)
     {
         if (token == null) return;
-        //check server for new tokenscript
+        //check server for new TokenScript
         scriptUpdate = assetDefinitionService.checkServerForScript(token, scriptUpdateInProgress)
                 .observeOn(Schedulers.io())
                 .subscribeOn(Schedulers.single())
@@ -1041,5 +1029,15 @@ public class TokenFunctionViewModel extends BaseViewModel implements Transaction
             Timber.d("ATTR/FA: " + attribute.id + " (" + attribute.name + ")" + " : " + attribute.text);
             TokenScriptResult.addPair(attrs, attribute);
         }
+    }
+
+    public GasService getGasService()
+    {
+        return gasService;
+    }
+
+    public boolean getUseTSViewer()
+    {
+        return preferences.getUseTSViewer();
     }
 }
