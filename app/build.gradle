@@ -50,8 +50,8 @@ android {
         }
     }
     defaultConfig {
-        versionCode 6
-        versionName "1.1.13"
+        versionCode 7
+        versionName "1.1.14"
         //Sync01
         applicationId 'global.arcadia.wallet'
         minSdkVersion 24

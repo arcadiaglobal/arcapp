@@ -50,6 +50,7 @@
                     android:layout_height="@dimen/token_icon"
                     android:layout_gravity="center"
 
+                    android:layout_marginStart="@dimen/dp6"
                     android:layout_marginEnd="@dimen/small_12"
                     android:contentDescription="@null" />
 

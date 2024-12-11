@@ -18,13 +18,14 @@
             android:orientation="vertical">
 
             <com.alphawallet.app.widget.NotificationView
-                android:id="@+id/notification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                    android:id="@+id/notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
 
             <include layout="@layout/item_warning" />
 
-            <include layout="@layout/item_update" />
+            <!--<include layout="@layout/item_update" />-->
 
             <com.alphawallet.app.widget.StandardHeader
                 android:id="@+id/layout_header"
